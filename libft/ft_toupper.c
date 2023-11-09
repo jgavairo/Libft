@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gavairon <gavairon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:31:09 by jgavairo          #+#    #+#             */
-/*   Updated: 2023/11/09 14:31:12 by jgavairo         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:52:43 by gavairon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,4 @@ int	ft_toupper(int c)
 		c -= 32;
 	}
 	return (c);
-}
-#include<stdio.h>
-int	main()
-{
-	printf("%d", ft_toupper('e'));
-	return (0);
 }

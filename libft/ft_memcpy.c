@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gavairon <gavairon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:56:22 by jgavairo          #+#    #+#             */
-/*   Updated: 2023/11/09 14:36:37 by jgavairo         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:08:40 by gavairon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 		n--;
 	}
-	return (0);
+	return (strdest);
 }
 /*#include <stdio.h>
 
