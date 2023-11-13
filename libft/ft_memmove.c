@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 16:32:42 by gavairon          #+#    #+#             */
-/*   Updated: 2023/11/13 16:30:21 by jgavairo         ###   ########.fr       */
+/*   Created: 2023/11/13 12:29:48 by jgavairo          #+#    #+#             */
+/*   Updated: 2023/11/13 16:33:59 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	while (n > 1)
+	i = 0;
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (s < d && s + n > d)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
-		n--;
+		while (n > 0)
+		{
+			d[n - 1] = s[n - 1];
+			n--;
+		}
+		return (dest);
 	}
-	return (*str1 - *str2);
+	if ((d >= s + n) || (s >= d + n) || (d < s && d + n > s))
+	{
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dest);
 }

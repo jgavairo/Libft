@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 00:59:17 by jgavairo          #+#    #+#             */
-/*   Updated: 2023/11/10 02:02:04 by jgavairo         ###   ########.fr       */
+/*   Created: 2023/11/13 16:40:29 by jgavairo          #+#    #+#             */
+/*   Updated: 2023/11/13 17:37:06 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,19 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	lensrc;
-	size_t	i;
 
 	lensrc = ft_strlen(src);
-
-	if(size <= 0)
-		return(lensrc);
-    if (size <= lensrc)
-    {
-        i = 0;
-        while (i < size - 1)
-        {
-            *dst = *src;
-            dst++;
-            src++;
-            i++;
-        }
-        *dst = '\0';
-        return (lensrc);
-    }
-	while (size > 1 && *src != '\0')
+	if (!size)
+		return (lensrc);
+	if (size <= lensrc)
 	{
-		*dst = *src;
-		dst++;
-		src++;
-		size--;
+		while (--size)
+			*dst++ = *src++;
+		*dst = '\0';
+		return (lensrc);
 	}
+	while (--size && *src)
+		*dst++ = *src++;
 	*dst = '\0';
 	return (lensrc);
 }

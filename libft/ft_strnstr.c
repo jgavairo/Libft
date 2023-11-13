@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gavairon <gavairon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgavairo <jgavairo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 22:31:25 by jgavairo          #+#    #+#             */
-/*   Updated: 2023/11/10 16:04:43 by gavairon         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:49:12 by jgavairo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t i;
-    size_t j;
+	size_t	i;
+	size_t	j;
 
-    i = 0;
-    j = 0;
-
-    if (little[j] == '\0')
-        return ((char *)big);
-    while (big[i] && i < len)
-    {
-        while (big[i] == little[j] && i < len)
-        {
-            j++;
-            i++;
-            if(little[j] == '\0')
-            {
-                return (char *)big + (i - j);
-            }
-        }
-        i = i - j;
-        j = 0;
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	j = 0;
+	if (little[j] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		while (big[i] == little[j] && i < len)
+		{
+			j++;
+			i++;
+			if (!little[j])
+				return ((char *)big + (i - j));
+		}
+		i = i - j;
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }
